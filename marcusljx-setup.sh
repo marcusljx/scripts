@@ -1,6 +1,7 @@
 #!/bin/bash 
 
 RC_FILE="~/.zshrc"
+LOGIN_FILE="~/.profile"
 REBOOT=false
 
 function say() {
@@ -18,10 +19,13 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 chsh -s $(which zsh)
 
 #======================================
-say "[SETTING] Set 3-finger tap to middle-click"
-synclient TapButton3=2
-
+say "[APPEND] adding shell cmds to ${RC_FILE}"
+echo '## MARCUSLJX BASH SCRIPTS' >> ${RC_FILE}
+echo 'source ${SCRIPTS_HOME}/.src' >> ${RC_FILE}
+ 
 #======================================
-say "[APPEND] adding source cmds to ${RC_FILE}"
-echo '## MARCUSLJX SCRIPTS' >> ${RC_FILE}
-echo 'source ${HOME}/scripts/.src' >> ${RC_FILE}
+say "[APPEND] adding login cmds to .profile"
+echo '## MARCUSLJX LOGIN SCRIPTS' >> ${LOGIN_FILE}
+echo 'export SCRIPTS_HOME=${HOME}/scripts' >> ${LOGIN_FILE}
+echo 'source ${SCRIPTS_HOME}/.login' >> ${LOGIN_FILE}
+REBOOT=true

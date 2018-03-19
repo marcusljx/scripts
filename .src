@@ -1,7 +1,5 @@
 #!/bin/bash
 
-export SCRIPTS_HOME="$(dirname $(readlink -f $0))"
-echo "SOURCE: ${SCRIPTS_HOME}/..."
 for f in ${SCRIPTS_HOME}/env/*; do
     source $f
 done
