@@ -8,6 +8,15 @@ function say() {
     echo "=========== $@"
 }
 
+function install_other_packages() {
+    sudo apt install -y \
+    openvpn \
+    openvpn-systemd-resolved \
+    network-manager-openvpn \
+    network-manager-openvpn-gnome \
+    guake \
+}
+
 #======================================
 say "[INSTALL] vim"
 sudo apt install -y vim
@@ -29,3 +38,7 @@ echo '## MARCUSLJX LOGIN SCRIPTS' >> ${LOGIN_FILE}
 echo 'export SCRIPTS_HOME=${HOME}/scripts' >> ${LOGIN_FILE}
 echo 'source ${SCRIPTS_HOME}/.login' >> ${LOGIN_FILE}
 REBOOT=true
+
+#======================================
+say "[INSTALL] Other Tools"
+install_other_packages
