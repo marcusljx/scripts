@@ -1,5 +1,5 @@
 #!/bin/bash
 
-for f in ${SCRIPTS_HOME}/src/*; do
+for f in ${SCRIPTS_HOME}/src_dir/*; do
     source $f
 done

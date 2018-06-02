@@ -1,7 +1,8 @@
 #!/bin/bash 
 
-RC_FILE="~/.zshrc"
-LOGIN_FILE="~/.profile"
+SCRIPTS_HOME=${HOME}/scripts
+RC_FILE="${HOME}/.zshrc"
+LOGIN_FILE="${HOME}/.profile"
 REBOOT=false
 
 function say() {
@@ -14,7 +15,7 @@ function install_other_packages() {
     openvpn-systemd-resolved \
     network-manager-openvpn \
     network-manager-openvpn-gnome \
-    guake \
+    guake 
 }
 
 #======================================
@@ -30,6 +31,7 @@ chsh -s $(which zsh)
 #======================================
 say "[APPEND] adding shell cmds to ${RC_FILE}"
 echo '## MARCUSLJX BASH SCRIPTS' >> ${RC_FILE}
+echo 'SCRIPTS_HOME=${HOME}/scripts' >> ${RC_FILE}
 echo 'source ${SCRIPTS_HOME}/.src' >> ${RC_FILE}
  
 #======================================
@@ -42,3 +44,4 @@ REBOOT=true
 #======================================
 say "[INSTALL] Other Tools"
 install_other_packages
+
