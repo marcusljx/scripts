@@ -16,6 +16,7 @@ function install_other_packages() {
     network-manager-openvpn \
     network-manager-openvpn-gnome \
     guake 
+    xserver-xorg-input-synaptics
 }
 
 #======================================
