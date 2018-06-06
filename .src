@@ -1,5 +1,6 @@
 #!/bin/bash
 
 for f in ${SCRIPTS_HOME}/src_dir/*; do
+    echo "source $f"
     source $f
 done
